@@ -1,48 +1,39 @@
 
 
+import com.itextpdf.text.*;
+import com.itextpdf.text.pdf.PdfWriter;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDFont;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
+import java.io.FileOutputStream;
+import com.itextpdf.text.Document;
+
+
 public class Main {
 
     public static void  main (String args[]) {
+
         try {
 
-            //ドキュメントオブジェクトの作成
-            PDDocument document = new PDDocument();
+        Document document = new Document();
 
-            //pageオブジェクトの作成
-            PDPage page = new PDPage();
-            document.addPage(page);
+        PdfWriter.getInstance(document, new FileOutputStream("test.pdf"));
 
-            //文字出力処理
-            PDPageContentStream contentStream = new PDPageContentStream(document, page);
-            contentStream.beginText();
+        document.open();
+        Font font = FontFactory.getFont(FontFactory.COURIER, 16, BaseColor.BLACK);
+        Chunk chunk = new Chunk("Hello", font);
 
-            //フォント指定
-            PDFont font = PDType1Font.TIMES_ITALIC;
-            contentStream.setFont(font, 12);
+        document.add(chunk);
+        document.close();
 
-            //出力位置指定
-            //contentStream.newLineAtOffset(0f, 0f);  //左下
-
-            //出力する文字
-            contentStream.showText("HelloWorld");
-            contentStream.endText();
-            contentStream.close();
-
-
-
-
-
-            //ドキュメント保存
-            document.save("test.pdf");
-            document.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
+
     }
 }
