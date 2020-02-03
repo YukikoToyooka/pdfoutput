@@ -1,6 +1,8 @@
 
 
 import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
@@ -62,57 +64,88 @@ public class Main {
                 title.restoreState();
             }
 
-            BaseFont baseFontTable = BaseFont.createFont("HeiseiKakuGo-W5", "UniJIS-UCS2-H", false);
-
             //テーブルの作成
-            //引数は列数を入れる
-            PdfPTable table = new PdfPTable(2);
+            {
+                BaseFont baseFontTable = BaseFont.createFont("HeiseiKakuGo-W5", "UniJIS-UCS2-H", false);
 
-            //テーブルの幅を指定
-            table.setTotalWidth(400);
+                //引数は列数を入れる
+                PdfPTable table = new PdfPTable(2);
 
-            //それぞれの列の幅を設定する
-            int width[] = {200, 200};
-            table.setWidths(width);
+                //テーブルの幅を指定
+                table.setTotalWidth(400);
 
-            //罫線の設定
-            table.getDefaultCell().setBorder(Rectangle.BOX);
+                //それぞれの列の幅を設定する
+                int width[] = {200, 200};
+                table.setWidths(width);
 
-            //表のフォントの設定
-            Font tableFont = new Font(baseFontTable, 12);
+                //罫線の設定
+                table.getDefaultCell().setBorder(Rectangle.BOX);
 
-            //-----表タイトルの設定 ------
-            //追加するセル(列タイトル)の作成（1行目)
-            PdfPCell cell1_1 = new PdfPCell(new Paragraph("発電源", tableFont));
-            cell1_1.setGrayFill(0.8f);  //セルを灰色に設定
-            cell1_1.setFixedHeight(22f);    //セルの高さを設定
-            table.addCell(cell1_1);    //セルをテーブルに追加
+                //表のフォントの設定
+                Font tableFont = new Font(baseFontTable, 12);
 
-            //追加するセル(列タイトル)の作成(2行目)
-            PdfPCell cell2_1 = new PdfPCell(new Paragraph("CREV_ID", tableFont));
-            cell2_1.setGrayFill(0.8f);  //セルを灰色に設定
-            cell2_1.setFixedHeight(22f);    //セルの高さを設定
-            table.addCell(cell2_1);     //セルをテーブルに追加
+                //-----表タイトルの設定 ------
+                //追加するセル(列タイトル)の作成（1行目)
+                PdfPCell cell1_1 = new PdfPCell(new Paragraph("発電源", tableFont));
+                cell1_1.setGrayFill(0.8f);  //セルを灰色に設定
+                cell1_1.setFixedHeight(22f);    //セルの高さを設定
+                table.addCell(cell1_1);    //セルをテーブルに追加
 
-            //----表要素の追加----
+                //追加するセル(列タイトル)の作成(2行目)
+                PdfPCell cell2_1 = new PdfPCell(new Paragraph("CREV_ID", tableFont));
+                cell2_1.setGrayFill(0.8f);  //セルを灰色に設定
+                cell2_1.setFixedHeight(22f);    //セルの高さを設定
+                table.addCell(cell2_1);     //セルをテーブルに追加
 
-            int i;
+                //----表要素の追加----
 
-            for (i = 0; i < 10; i++){
-                PdfPCell powerSupply;
-                PdfPCell crevId;
+                int i;
 
-                //サンプルとして2行追加しておく
-                powerSupply = new PdfPCell(new Paragraph("-", tableFont));
-                crevId = new PdfPCell(new Paragraph("-", tableFont));
+                for (i = 0; i < 10; i++) {
+                    PdfPCell powerSupply;
+                    PdfPCell crevId;
 
-                table.addCell(powerSupply);
-                table.addCell(crevId);
+                    //サンプルとして2行追加しておく
+                    powerSupply = new PdfPCell(new Paragraph("-", tableFont));
+                    crevId = new PdfPCell(new Paragraph("-", tableFont));
 
+                    table.addCell(powerSupply);
+                    table.addCell(crevId);
+
+                }
+
+                //設定したテーブルをドキュメントに追加
+                table.writeSelectedRows(0, -1, 100, 700, writer.getDirectContent());
             }
 
-            //設定したテーブルをドキュメントに追加
-            table.writeSelectedRows(0, -1, 100, 700, writer.getDirectContent());
+            //現在時刻の取得と表示
+            {
+                //カレンダクラスのオブジェクトを作成する
+               Calendar cl = Calendar.getInstance();
+               //日付表示のオブジェクトを作成する
+               PdfContentByte dateText = writer.getDirectContent();
+               //日付格納変数
+               String date;
+
+               //日付表示フォーマットの設定
+                SimpleDateFormat data = new SimpleDateFormat("yyyy年MM月dd日");
+               //日付取得
+               //date =  data.format(cl.getTime());
+
+               //表示テキストの設定開始
+               dateText.saveState();
+               dateText.beginText();
+               //フォント(明朝)、サイズの設定
+               dateText.setFontAndSize(baseFont, 15);
+               //表示位置(右上端に表示させる)
+               dateText.setTextMatrix(450, (document.getPageSize().getHeight() - 30));
+               //文字表示
+               dateText.showText(data.format(cl.getTime()));
+
+                title.endText();
+                title.restoreState();
+
+            }
 
         document.close();
 
