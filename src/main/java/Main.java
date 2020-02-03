@@ -63,22 +63,37 @@ public class Main {
             }
 
 
+            //テーブルの作成
+            //引数は列数を入れる
+            PdfPTable table = new PdfPTable(2);
 
+            //テーブルの幅を指定
+            table.setTotalWidth(400);
 
+            //それぞれの列の幅を設定する
+            int width[] = {200, 200};
+            table.setWidths(width);
 
+            //罫線の設定
+            table.getDefaultCell().setBorder(Rectangle.BOX);
 
+            //表のフォントの設定
+            Font tableFont = new Font(baseFont, 12);
 
+            //セルの宣言
+            PdfPCell cell;
 
+            //追加するセルの作成（1行目)
+            cell = new PdfPCell(new Phrase("発電源", tableFont));
+            table.addCell(cell);    //セルをテーブルに追加
 
+            //追加するセルの作成(2行目)
+            cell = new PdfPCell(new Phrase("CREV_ID", tableFont));
+            table.addCell(cell);
 
-        //出力するフォント設定
-        Font font = FontFactory.getFont(FontFactory.COURIER, 16, BaseColor.BLACK);
+            //設定したテーブルをドキュメントに追加
+            table.writeSelectedRows(0, -1, 100, 700, writer.getDirectContent());
 
-        //出力する文字
-        Chunk chunk = new Chunk("Hello", font);
-
-        //PDFに文字を出力する
-        document.add(chunk);
         document.close();
 
         } catch (Exception e) {
