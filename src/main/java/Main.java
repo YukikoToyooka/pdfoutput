@@ -62,6 +62,7 @@ public class Main {
                 title.restoreState();
             }
 
+            BaseFont baseFontTable = BaseFont.createFont("HeiseiKakuGo-W5", "UniJIS-UCS2-H", false);
 
             //テーブルの作成
             //引数は列数を入れる
@@ -78,18 +79,37 @@ public class Main {
             table.getDefaultCell().setBorder(Rectangle.BOX);
 
             //表のフォントの設定
-            Font tableFont = new Font(baseFont, 12);
+            Font tableFont = new Font(baseFontTable, 12);
 
-            //セルの宣言
-            PdfPCell cell;
+            //-----表タイトルの設定 ------
+            //追加するセル(列タイトル)の作成（1行目)
+            PdfPCell cell1_1 = new PdfPCell(new Paragraph("発電源", tableFont));
+            cell1_1.setGrayFill(0.8f);  //セルを灰色に設定
+            cell1_1.setFixedHeight(22f);    //セルの高さを設定
+            table.addCell(cell1_1);    //セルをテーブルに追加
 
-            //追加するセルの作成（1行目)
-            cell = new PdfPCell(new Phrase("発電源", tableFont));
-            table.addCell(cell);    //セルをテーブルに追加
+            //追加するセル(列タイトル)の作成(2行目)
+            PdfPCell cell2_1 = new PdfPCell(new Paragraph("CREV_ID", tableFont));
+            cell2_1.setGrayFill(0.8f);  //セルを灰色に設定
+            cell2_1.setFixedHeight(22f);    //セルの高さを設定
+            table.addCell(cell2_1);     //セルをテーブルに追加
 
-            //追加するセルの作成(2行目)
-            cell = new PdfPCell(new Phrase("CREV_ID", tableFont));
-            table.addCell(cell);
+            //----表要素の追加----
+
+            int i;
+
+            for (i = 0; i < 10; i++){
+                PdfPCell powerSupply;
+                PdfPCell crevId;
+
+                //サンプルとして2行追加しておく
+                powerSupply = new PdfPCell(new Paragraph("-", tableFont));
+                crevId = new PdfPCell(new Paragraph("-", tableFont));
+
+                table.addCell(powerSupply);
+                table.addCell(crevId);
+
+            }
 
             //設定したテーブルをドキュメントに追加
             table.writeSelectedRows(0, -1, 100, 700, writer.getDirectContent());
