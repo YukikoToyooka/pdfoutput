@@ -124,13 +124,9 @@ public class Main {
                Calendar cl = Calendar.getInstance();
                //日付表示のオブジェクトを作成する
                PdfContentByte dateText = writer.getDirectContent();
-               //日付格納変数
-               String date;
 
                //日付表示フォーマットの設定
                 SimpleDateFormat data = new SimpleDateFormat("yyyy年MM月dd日");
-               //日付取得
-               //date =  data.format(cl.getTime());
 
                //表示テキストの設定開始
                dateText.saveState();
@@ -144,6 +140,50 @@ public class Main {
 
                 title.endText();
                 title.restoreState();
+
+            }
+
+            //償却IDとDEPの表示設定
+            {
+                //償却IDのオブジェクトを作成する
+                PdfContentByte azId = writer.getDirectContent();
+                //DEPのオブジェクトを作成する
+                PdfContentByte dep = writer.getDirectContent();
+
+                //表示テキストの設定開始
+                azId.saveState();
+                azId.beginText();
+
+                //フォント設定
+                azId.setFontAndSize(baseFont, 15);
+
+                //表示位置
+                azId.setTextMatrix(100, (document.getPageSize().getHeight() - 100));
+
+                //文字表示
+                azId.showText("償却ID：---------ID");
+
+                //償却IDについて設定完了
+                azId.endText();
+                azId.restoreState();
+
+                //表示テキストの設定開始
+                dep.saveState();
+                dep.beginText();
+
+                //フォント設定
+                dep.setFontAndSize(baseFont, 15);
+
+                //表示位置
+                dep.setTextMatrix(100, (document.getPageSize().getHeight() - 120));
+
+                //文字表示
+                dep.showText("DEP：---------");
+
+                //設定完了
+                dep.endText();
+                dep.restoreState();
+
 
             }
 
