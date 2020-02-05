@@ -138,6 +138,7 @@ public class Main {
                //文字表示
                dateText.showText(data.format(cl.getTime()));
 
+               //タイトル設定完了
                 title.endText();
                 title.restoreState();
 
