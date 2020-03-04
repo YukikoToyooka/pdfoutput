@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="437bbf80-2e48-4787-8050-34b091ca73f4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Pdf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/QrCode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/test.pdf" afterDir="false" />
@@ -44,9 +46,9 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.35085574" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.All in PDFProject">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="PDFProject" />
@@ -64,7 +66,6 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.All in PDFProject" />
       </list>
     </recent_temporary>
@@ -99,29 +100,41 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="233" y="2" key="#Project_Structure/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1580274821782" />
-    <state x="2660" y="277" key="FileChooserDialogImpl" timestamp="1580863520952">
+    <state x="2334" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581916455309">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
-    <state x="2660" y="277" key="FileChooserDialogImpl/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1580863520952" />
-    <state width="1237" height="204" key="GridCell.Tab.0.bottom" timestamp="1580725245921">
+    <state x="2334" y="177" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581916455309" />
+    <state x="2614" y="284" key="EnvironmentVariablesDialog" timestamp="1581916451830">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2614" y="284" key="EnvironmentVariablesDialog/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581916451830" />
+    <state x="2660" y="277" key="FileChooserDialogImpl" timestamp="1581916370691">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2660" y="277" key="FileChooserDialogImpl/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581916370691" />
+    <state width="1877" height="164" key="GridCell.Tab.0.bottom" timestamp="1581933312492">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1237" height="91" key="GridCell.Tab.0.bottom/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1580722361814" />
-    <state width="1237" height="204" key="GridCell.Tab.0.bottom/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1580725245921" />
-    <state width="1237" height="204" key="GridCell.Tab.0.center" timestamp="1580725245921">
+    <state width="1877" height="164" key="GridCell.Tab.0.bottom/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581933312492" />
+    <state width="1877" height="164" key="GridCell.Tab.0.center" timestamp="1581933312491">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1237" height="91" key="GridCell.Tab.0.center/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1580722361814" />
-    <state width="1237" height="204" key="GridCell.Tab.0.center/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1580725245921" />
-    <state width="1237" height="204" key="GridCell.Tab.0.left" timestamp="1580725245921">
+    <state width="1877" height="164" key="GridCell.Tab.0.center/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581933312491" />
+    <state width="1877" height="164" key="GridCell.Tab.0.left" timestamp="1581933312491">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1237" height="91" key="GridCell.Tab.0.left/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1580722361813" />
-    <state width="1237" height="204" key="GridCell.Tab.0.left/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1580725245921" />
-    <state width="1237" height="204" key="GridCell.Tab.0.right" timestamp="1580725245921">
+    <state width="1877" height="164" key="GridCell.Tab.0.left/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581933312491" />
+    <state width="1877" height="164" key="GridCell.Tab.0.right" timestamp="1581933312492">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1237" height="91" key="GridCell.Tab.0.right/0.0.1280.680/1920.0.1920.1040@0.0.1280.680" timestamp="1580722361814" />
-    <state width="1237" height="204" key="GridCell.Tab.0.right/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1580725245921" />
+    <state width="1877" height="164" key="GridCell.Tab.0.right/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1581933312492" />
+    <state x="2390" y="165" key="SettingsEditor" timestamp="1583301494092">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2390" y="165" key="SettingsEditor/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1583301494092" />
   </component>
 </project>
